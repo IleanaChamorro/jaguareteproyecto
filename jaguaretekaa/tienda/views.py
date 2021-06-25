@@ -8,3 +8,7 @@ def index(request):
     return render(request, 'templates/index.html', {
         'sesion': sesion
     })
+
+
+def about(request):
+    pass
