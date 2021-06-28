@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@200&family=Oswald&family=Playfair+Display:wght@500&display=swap');
+/*About*/
+.text-body{
+    font-size: 40px;
+    font-family: 'Playfair Display', serif;
+}
+.imagen-acerca{
+    width: 400px;
+    height: 400px;
+    float: left;
+    border-radius: 50%;
+}
+.textoacerca{
+    float:left;
+    font-family: 'Heebo', sans-serif;
+    font-size: 18px;
+    color: rgb(255, 255, 255);
+}
+/*Footer*/
+.footer{
+    height:100%;
+    background-color: #120d07;
+    color: #94975a;
+    font-size: 26px;
+    letter-spacing: 1px;
+    font-family: 'Oswald', sans-serif;
+    justify-content: inline-block;
+}
+.fa-code{
+    margin: 20px 20px; 
+    color: whitesmoke;
+}
+.fa-copyright{
+    margin: 20px 20px;
+    color: whitesmoke;
+}
