@@ -5,10 +5,10 @@ from django.db import models
 
 # Modelo Categoria
 class Categoria(models.Model):
-    nombre = models.CharField(max_length=50)
+    nombre = models.CharField(max_length=50, unique=True)
     
     def __str__(self):
-        pass
+        return f'Categoria #{self.id}: {self.nombre}'
 
 # Modelo productos.
 class Producto(models.Model):

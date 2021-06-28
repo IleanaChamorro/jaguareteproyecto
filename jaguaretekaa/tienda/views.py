@@ -1,6 +1,8 @@
 from django.http import HttpResponse
 from django.shortcuts import render
 
+from .models import AñadirItem, Carrito, Categoria, Producto
+
 
 # Create your views here.
 def index(request):
