@@ -45,6 +45,15 @@ def index(request):
 def about(request):
     return render(request, 'about.html', {})
 
+
+def home(request):
+    return render(request, 'home.html', {})
+
+def resultado(request):
+    return render(request, 'resultado.html', {})
+def producto(request):
+    return render(request, 'producto.html', {})
+
 def acceder(request):
     return render(request, 'templates/acceder.html', {})
 
