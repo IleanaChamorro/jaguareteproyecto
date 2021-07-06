@@ -7,7 +7,7 @@ urlpatterns = [
     path('about/', views.about, name="about"),
     path('contact/', views.contact, name="contact"),
     # Access
-    path('sign_in/', views.sign_in, name="sign_in"),
+    path('sign_in/', views.signin, name="sign_in"),
     path('sign_up/', views.signup, name="sign_up"),
     # Products
     path('products/', views.products, name="products"),
