@@ -1,16 +1,47 @@
+from django.contrib import messages
+from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth.mixins import (LoginRequiredMixin,
+                                        PermissionRequiredMixin)
+from django.contrib.auth.models import Group
+from django.core.exceptions import ObjectDoesNotExist
+from django.db.models import Q
 from django.http import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import get_object_or_404, redirect, render
 
-from .models import AñadirItem, Carrito, Producto
+from . import forms
+from .models import Carrito, Categoria, Producto, ProductoAgregado
 
 
 # Create your views here.
 def index(request):
-    sesion = request.session
-    return render(request, 'templates/index.html', {
-        'sesion': sesion
-    })
+    # productos = Producto.objects.all()
+    # productos_ordenados = productos.order_by('-fecha_creacion')
+    
+    # index = 0
+    # productos_index = []
+    
+    # while index < 3:
+    #     producto = productos_ordenados[index]
+    #     productos_index.append(producto)
+    #     index += 1
+        
+    # index = 3
+    # productos_relacionados = []
 
+    # while index < 10:
+    #     producto = productos_ordenados[index]
+    #     productos_relacionados.append(producto)
+    #     index += 1
+        
+    # data = {
+    #     'productos_index': productos_index,
+    #     'productos_relacionados': productos_relacionados,
+    # }
+    
+    return render(request, 'index.html', )
+    
 def about(request):
     return render(request, 'about.html', {})
 
