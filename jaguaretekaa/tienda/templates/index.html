@@ -1,34 +1,37 @@
 {% extends 'layout.html' %}
 {% block contenido %}
   {% load static %}
-  <!--Productos-->
-  <h2 class="card-productos">Últimos Productos</h2>
-  <div class="card-group">
+  <div class="d-flex flex-column">
+  <h3 class="card-productos">Últimos Productos</h3>
+    <div class="w-75 d-flex flex-row m-auto mb-5">
   {% for product in productos_index %}
-    <div class="card">
-      <img class="card-img" src="{% static product.imagen %}" alt="Card image cap">
-      <div class="card-body">
-        <h5 class="card-title">{{product.titulo}}</a></h5>
-        <button type="button" class="btn btn-dark btn-lg btn-block" id="button-card"><a href="#">Ver Producto</a></button>
-      </div>
-    </div>
+  <div class="card ">
+  <img class="card-img-top w-100 h-50" src="{% static product.imagen %}" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">{{product.titulo}}</h5>
+    <p class="card-text">{{product.descripcion}}</p>
+    <p class="card-text mt-2 font-weight-bold">${{product.precio}}</p>
+
+  </div>
+  <div class="card-footer d-flex justify-content-center"><a href="product/{{product.id}}" class="btn btn-primary">Ver producto</a></div>
+</div>
   {% endfor%}
   </div>
+
+  
   <hr>
-  <div class="container-masproductos">
-      <h1 class="title-masproductos">Más Productos</h1>
+  <div class="container-masproductos h-100">
+      <h1 class="title-masproductos">Conocé más de nuestros productos</h1>
       <div class="containerlista">
           <ul class="listaultproductos">
-              <a class="UltProducto" href="#"><i class="fas fa-chevron-circle-right"></i>Producto 4 :</a>
-              <h5 class="text-muted" id="descripcionproducto">Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum, quaerat!</h5>
-              <a class="UltProducto" href="#"><i class="fas fa-chevron-circle-right"></i>Producto 5 :</a>
-              <h5 class="text-muted" id="descripcionproducto">Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum, quaerat!</h5>
-              <a class="UltProducto" href="#"><i class="fas fa-chevron-circle-right"></i>Producto 6 :</a>
-              <h5 class="text-muted" id="descripcionproducto">Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum, quaerat!</h5>
-              <a class="UltProducto" href="#"><i class="fas fa-chevron-circle-right"></i>Producto 7 :</a>
-              <h5 class="text-muted" id="descripcionproducto">Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum, quaerat!</h5>
-             
+          {% for product in productos%}
+              <a class="UltProducto" href="product/{{product.id}}"><i class="fas fa-chevron-circle-right"></i>{{product.titulo}}</a>
+              <p class="text-muted ml-5"><span class="font-italic">Descripción: </span>{{product.descripcion}}</p>
+              <p class="text-muted ml-5"><span class="font-weight-bold">Categoría: </span>{{product.categoria}}</p>
+          {% endfor %}
           </ul>
       </div>
   </div>
+  </div>
+  
   {% endblock%}

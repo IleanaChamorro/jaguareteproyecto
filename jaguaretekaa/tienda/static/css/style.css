@@ -10,7 +10,7 @@
     background-color: #94975a;
     position: absolute;
     z-index: 1;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
   }
   #navbar{
     color: black;
@@ -27,7 +27,7 @@
     list-style: none;
   }
   .registrer li a{
-    color: white;
+    color: red;
     font-family: 'Heebo';
     text-decoration: none;
     text-transform: uppercase;
@@ -124,13 +124,13 @@
   font-family: 'Playfair Dispaly', serif;
   text-align: center;
   font-size: 60px;
-  margin-top: 40px;
+  margin-top: 20px;
   margin-bottom: 16px;
 }
 .card-group{
   margin-left: 160px;
   padding: 50px;
-  width: 160vh;
+  width: 100vw;
 }
 .card{
   margin-left: 10px;
@@ -263,7 +263,6 @@
 
 /*Footer*/
 .footer{
-    height:100%;
     background-color: #120d07;
     color: #94975a;
     font-size: 26px;

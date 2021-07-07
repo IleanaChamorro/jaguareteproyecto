@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'crispy_forms',
 ]
 
 MIDDLEWARE = [
@@ -116,3 +117,8 @@ MEDIA_URL = '/img/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'tienda/static/')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+CRISPY_TEMPLATE_PACK="bootstrap4"
+
+LOGIN_REDIRECT_URL = "/"
+LOGout_REDIRECT_URL = "/"

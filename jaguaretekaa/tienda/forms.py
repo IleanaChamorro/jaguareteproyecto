@@ -1,26 +1,19 @@
+ 
 from django import forms
-from django.contrib.auth import authenticate
-from django.contrib.auth.forms import (AuthenticationForm, PasswordChangeForm,
-                                       UserCreationForm)
+from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
-from django.core.exceptions import ValidationError
-from django.forms.models import ModelForm
 
-from .models import Producto
+from . import models
 
 
-class SignUpForm(UserCreationForm):
-    def __init__(self, *args, **kwargs):
-        super(SignUpForm, self).__init__(*args, **kwargs)
-        for field in ('username', 'email', 'first_name', 'last_name', 'password1', 'password2'):
-            self.fields[field].widget.attrs = {'class': 'form-control'}
+class ProductoForm(forms.ModelForm):
+
+    class Meta:
+        model = models.Producto
+        fields = '__all__'
+
+class CustomUserCreationForm(UserCreationForm):
+    
     class Meta:
         model = User
-        fields = ['username','email','first_name', 'last_name', 'password1', 'password2']
-
-class NuevoProductoForm(ModelForm):
-    class Meta:
-        model=Producto
-        fields=[
-            'titulo','categoria','precio','imagen'
-        ]
+        fields = ["email", "username", "password1", "password2"]
