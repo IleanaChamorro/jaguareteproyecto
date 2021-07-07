@@ -1,1 +1,98 @@
-<h1>Layout template</h1>
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <title>Jaguarete KAA</title>
+    <link rel="stylesheet" href="{}">
+    <meta charset="utf-8">
+    <meta name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+      <link rel="stylesheet" href="{% static 'css/style.css'%}">
+      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+      <script src="https://kit.fontawesome.com/dc290107fb.js" crossorigin="anonymous"></script>
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+      <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+  </head>
+  <body class="d-flex flex-column min-vh-100">
+       <!--Encabezado-->
+       <nav class="navbar d-flex">
+        <div class="banner d-flex justify-content-center align-items-center">
+          <img src="{% static 'img/logo.svg' %}" class="image">
+            <a href="{% url 'tienda:index' %}" class="ml-3 h3">Jaguarete Kaa S.A</a>
+        </div><ul class="nav justify-content-end align-items-center">
+        
+        {% if request.user.is_authenticated %}
+        
+        <li class="nav-item">
+          <p class="text-white">Hola, {{request.user}}!</p>
+         </li>
+        <li class="nav-item">
+          <button class="btn btn-outline-danger mx-2" type="submit"><a class="nav-link text-white" href="{% url 'tienda:logout'%}">Logout</a></button>
+        </li>
+        {% else %}
+        <li class="nav-item">
+          <button class="btn btn-outline-success mx-2" type="submit"><a class="nav-link text-white" href="login/">Login</a></button>
+        </li>
+        <li class="nav-item">
+          <button class="btn btn-outline-success mx-2" type="submit"><a class="nav-link text-white" href="register/">Registro</a></button>
+        </li>
+        {% endif %}
+
+        <li class="nav-item">
+          <div id="icons">
+            <span id="basket" bata-num="19"><a href="{% url 'tienda:cart' %}"><i class="fas fa-cart-arrow-down"></i></a></span>
+          </div>
+        </li>
+      </nav>
+         <!--Menu-->
+    <div class="navbar navbar-expand-lg navbar-light" id="navbar">
+      <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+  
+            <div class="dropdown">
+              <a class="nav-link" data-toggle="dropdown">
+                Categorias
+              </a>
+              <ul class="dropdown-menu" >
+              {% for item in categorias %}
+                <li class="cat"><a href="#"><i class="fas fa-chevron-circle-right"></i>{{item.descripcion}}</a></li>
+              {% endfor %}
+              </ul>
+            </div>
+  
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'tienda:about' %}">Acerca de</a>
+            </li>
+            <a href="mailto:admin@jaguaretekaa.com" type="button" class="nav-link" data-toggle="modal" data-target="#exampleModal" data-whatever="Jaguarete Kaa S.A">Contacto</a>
+
+            <!--
+            <li class="nav-item">
+              <a class="nav-link">Nuevo Producto</a>
+            </li>
+          -->
+          </ul>
+            <form class="d-flex" action="{% url 'tienda:result'%}" method="GET">{% csrf_token %}
+              <input class="form-control me-2" type="text" placeholder="Buscar" aria-label="Search" name="q">
+              <button class="btn btn-success" type="submit">Buscar</button>
+            </form>
+        </div>
+      </div>
+    </div>
+    <!--cuerpo -->
+    {% block contenido %}
+
+
+    {% endblock %}
+     <!--Footer-->
+     <div class="footer" style="position:fixed; bottom:0; width:100%; height:50px;">
+        <p style="font-size:11px; text-align:center;">  <i class="far fa-copyright"></i>  JAGUARETE KAA S.A   |   Todos los derechos reservados   | <i class="fas fa-code"></i> Desarrollado por: Ileana Chamorro - Hernan Chamorro</p>
+    </div>
+</body>
+</html> 

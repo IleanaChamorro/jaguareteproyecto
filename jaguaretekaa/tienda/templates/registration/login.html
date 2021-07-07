@@ -1,0 +1,18 @@
+{% extends 'layout.html' %}
+{% block contenido %}
+  {% load static %}
+  <div class="container">
+    {% block title %}
+    <p class="mb-3" style="font-weight: bold; font-size: 40px;">Accedé con tu cuenta</p>
+    {% endblock %}
+    {% load crispy_forms_tags %}
+    {% block content %}
+    <form method="post" class="container from-group">
+        {%csrf_token %}
+        {{form|crispy}}
+        <button type="submit" class="btn btn-success">Acceder</button>
+        <p>¿No tenés una cuenta? Create una <a href="register/">acá</a></p>
+    </form>
+  </div>
+{% endblock %}
+{% endblock %}

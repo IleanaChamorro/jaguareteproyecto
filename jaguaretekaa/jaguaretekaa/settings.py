@@ -19,7 +19,7 @@ env_path = Path('.')/'.env'
 load_dotenv(dotenv_path=env_path)
 
 # Secret key
-SECRET_KEY = os.getenv('DJANGO_SECRET_KEY')
+SECRET_KEY = 'django-insecure-fn2+vi&ehi4v(o!8zf25e=0c8to(k=h_1b%uoc-f1678l7kw^x'
 
 # debug
 DEBUG = True
@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'crispy_forms',
 ]
 
 MIDDLEWARE = [
@@ -113,6 +114,11 @@ USE_TZ = True
 # STATIC AND MEDIA
 STATIC_URL = '/static/'
 MEDIA_URL = '/img/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'static/')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'tienda/static/')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+CRISPY_TEMPLATE_PACK="bootstrap4"
+
+LOGIN_REDIRECT_URL = "/"
+LOGout_REDIRECT_URL = "/"

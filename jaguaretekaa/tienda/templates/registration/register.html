@@ -1,0 +1,25 @@
+{% extends 'layout.html' %}
+{% block contenido %}
+  {% load static %}
+{% load crispy_forms_tags %}
+    <div class="container d-flex justify-content-center align-items-center vh-50">
+        <div class="card" style="width: 35rem; margin: 5em;">
+            <div class="card-body">
+                <h3>Registrarse</h3>
+                <hr>
+                <form action="" method="post">
+
+                    {% csrf_token %}
+                    {{ form | crispy }}
+                    <br>
+                    <div class="footer-card">
+                        <a href="/">Ir a inicio</a> | 
+                        <a href="login/">Iniciar sesión</a>
+                        <input type="submit" value="Registrarse" class="btn btn-success float-right">  
+                    </div>
+                    
+                </form>
+            </div>
+        </div>
+    </div>
+    {% endblock %}

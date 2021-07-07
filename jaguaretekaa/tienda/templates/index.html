@@ -1,1 +1,37 @@
-<h1>Index template</h1>
+{% extends 'layout.html' %}
+{% block contenido %}
+  {% load static %}
+  <div class="d-flex flex-column">
+  <h3 class="card-productos">Últimos Productos</h3>
+    <div class="w-75 d-flex flex-row m-auto mb-5">
+  {% for product in productos_index %}
+  <div class="card ">
+  <img class="card-img-top w-100 h-50" src="{% static product.imagen %}" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">{{product.titulo}}</h5>
+    <p class="card-text">{{product.descripcion}}</p>
+    <p class="card-text mt-2 font-weight-bold">${{product.precio}}</p>
+
+  </div>
+  <div class="card-footer d-flex justify-content-center"><a href="product/{{product.id}}" class="btn btn-primary">Ver producto</a></div>
+</div>
+  {% endfor%}
+  </div>
+
+  
+  <hr>
+  <div class="container-masproductos h-100">
+      <h1 class="title-masproductos">Conocé más de nuestros productos</h1>
+      <div class="containerlista">
+          <ul class="listaultproductos">
+          {% for product in productos%}
+              <a class="UltProducto" href="product/{{product.id}}"><i class="fas fa-chevron-circle-right"></i>{{product.titulo}}</a>
+              <p class="text-muted ml-5"><span class="font-italic">Descripción: </span>{{product.descripcion}}</p>
+              <p class="text-muted ml-5"><span class="font-weight-bold">Categoría: </span>{{product.categoria}}</p>
+          {% endfor %}
+          </ul>
+      </div>
+  </div>
+  </div>
+  
+  {% endblock%}
