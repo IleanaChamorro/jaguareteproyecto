@@ -22,5 +22,5 @@ class NuevoProductoForm(ModelForm):
     class Meta:
         model=Producto
         fields=[
-            'titulo','categoria','descripcion','precio','imagen'
+            'titulo','categoria','precio','imagen'
         ]

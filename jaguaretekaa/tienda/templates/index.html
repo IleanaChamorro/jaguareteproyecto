@@ -1,1 +1,34 @@
-<h1>Index template</h1>
+{% extends 'layout.html' %}
+{% block contenido %}
+  {% load static %}
+  <!--Productos-->
+  <h2 class="card-productos">Últimos Productos</h2>
+  <div class="card-group">
+  {% for product in productos_index %}
+    <div class="card">
+      <img class="card-img" src="{% static product.imagen %}" alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title">{{product.titulo}}</a></h5>
+        <button type="button" class="btn btn-dark btn-lg btn-block" id="button-card"><a href="#">Ver Producto</a></button>
+      </div>
+    </div>
+  {% endfor%}
+  </div>
+  <hr>
+  <div class="container-masproductos">
+      <h1 class="title-masproductos">Más Productos</h1>
+      <div class="containerlista">
+          <ul class="listaultproductos">
+              <a class="UltProducto" href="#"><i class="fas fa-chevron-circle-right"></i>Producto 4 :</a>
+              <h5 class="text-muted" id="descripcionproducto">Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum, quaerat!</h5>
+              <a class="UltProducto" href="#"><i class="fas fa-chevron-circle-right"></i>Producto 5 :</a>
+              <h5 class="text-muted" id="descripcionproducto">Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum, quaerat!</h5>
+              <a class="UltProducto" href="#"><i class="fas fa-chevron-circle-right"></i>Producto 6 :</a>
+              <h5 class="text-muted" id="descripcionproducto">Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum, quaerat!</h5>
+              <a class="UltProducto" href="#"><i class="fas fa-chevron-circle-right"></i>Producto 7 :</a>
+              <h5 class="text-muted" id="descripcionproducto">Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum, quaerat!</h5>
+             
+          </ul>
+      </div>
+  </div>
+  {% endblock%}

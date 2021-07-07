@@ -41,7 +41,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link" href="{% url 'home' %}">Home</a>
+              <a class="nav-link" href="{% url 'tienda:index' %}">Home</a>
             </li>
   
             <div class="dropdown">
@@ -49,15 +49,15 @@
                 Categorias
               </button>
               <ul class="dropdown-menu" >
-                <li class="cat"><a href="{% url 'producto' %}"><i class="fas fa-chevron-circle-right"></i>Producto 1</a></li>
-                <li class="cat"><a href="{% url 'producto' %}"><i class="fas fa-chevron-circle-right"></i>Producto 2</a></li>
-                <li class="cat"><a href="{% url 'producto' %}"><i class="fas fa-chevron-circle-right"></i>Producto 3</a></li>
-                <li class="cat"><a href="{% url 'producto' %}"><i class="fas fa-chevron-circle-right"></i>Producto 4</a></li>
+                <li class="cat"><a href="#"><i class="fas fa-chevron-circle-right"></i>Producto 1</a></li>
+                <li class="cat"><a href="#"><i class="fas fa-chevron-circle-right"></i>Producto 2</a></li>
+                <li class="cat"><a href="#"><i class="fas fa-chevron-circle-right"></i>Producto 3</a></li>
+                <li class="cat"><a href="#"><i class="fas fa-chevron-circle-right"></i>Producto 4</a></li>
               </ul>
             </div>
   
             <li class="nav-item">
-              <a class="nav-link" href="{% url 'about' %}">Acerca de</a>
+              <a class="nav-link" href="{% url 'tienda:about' %}">Acerca de</a>
             </li>
             <button type="button" class="btn" data-toggle="modal" data-target="#exampleModal" data-whatever="Jaguarete Kaa S.A" id="contactobotton">Contacto</button>
             <div class="modal" id="exampleModal" tabindex="-1" role="dialog">

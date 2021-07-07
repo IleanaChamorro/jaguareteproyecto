@@ -1,4 +1,5 @@
 from django.conf import settings
+from django.contrib.auth.models import User
 from django.db import models
 from django.shortcuts import reverse
 
@@ -19,7 +20,7 @@ class Producto(models.Model):
     imagen = models.ImageField(upload_to='uploaded_images')
     descripcion = models.TextField(default='')
     precio = models.DecimalField(default=0.00, max_digits=10, decimal_places=2)
-    fecha_creacion = models.DateTimeField(auto_now=True)
+    fecha_creacion = models.DateTimeField(auto_now_add=True)
     
     def __str__(self):
         return self.titulo
@@ -63,3 +64,21 @@ class Carrito(models.Model):
         for producto in self.productos.all():
             total += producto.precio_total_producto()
         return total
+
+class Cliente(models.Model):
+    usuario = models.OneToOneField(User, null=True, blank=True, on_delete=models.CASCADE)
+    nombre = models.CharField(max_length=100, null=True)
+    email = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.nombre
+
+# Orden
+# class Order(models.Model):
+    # cliente = models.ForeignKey(Customer, on_delete=models.SET_NULL, blank=True, null=True)
+    # fecha_pedido = models.DateTimeField(auto_now_add=True)
+    # completado = models.BooleanField(default=False, null=True, blank=False)
+    # id_transaccion = models.CharField(max_length=200, null=True)
+    
+    # def __str__(self):
+    #     return str(self.id)

@@ -7,7 +7,6 @@ app_name="tienda"
 urlpatterns = [
     path('', views.index, name="index"),
     path('about/', views.about, name="about"),
-    path('home/', views.home, name="home"),
     path('resultado/', views.resultado, name="resultado"),
     path('producto/', views.producto, name="producto"),
     path('contact/', views.contact, name="contact"),
@@ -33,4 +32,4 @@ urlpatterns = [
     path('cart/remove/<id>', views.cart_prod_edit, name="cart_prod_edit"),
     path('cart/void', views.void, name="void")
     
-]
+] 
