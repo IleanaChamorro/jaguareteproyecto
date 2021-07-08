@@ -1,0 +1,77 @@
+{% extends 'layout.html' %}
+
+{% load static %}
+{% block title%}Carrito{% endblock %}
+{% block contenido %}
+
+<div class="container">
+    <div class="row mt-2">
+        <div class="col-sm-8 offset-2 text-center bg-white">
+            <h2>Carrito</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-8 offset-2 bg-white">
+            Usuario: {{ cart.usuario | upper }}
+        </div>
+    </div>
+    <div class="row mt-2">
+        <div class="col-sm-8 offset-2">
+            <table class="table table-success table-bordered border-dark">
+              <thead class="table-dark text-center">
+                    <tr>
+                      <th scope="col">ID</th>
+                      <th scope="col">Titulo</th>
+                      <th scope="col">Precio</th>
+                      <th scope="col">Acción</th>
+                    </tr>
+                </thead>
+                <tbody>
+                  {% for c in cart_prod.all %}
+                    <tr>
+                      <th scope="row">{{ c.id }}</th>
+                      <td>{{ c.titulo }}</td>
+                      <td>$ {{ c.precio }}</td>
+                      <td class="text-center"><a href="{{ c.id }}"><i class="fas fa-trash-alt"></i></a></td>
+                    </tr>
+                  {% empty %}
+                  <tr>
+                    <td></td>
+                    <td>No hay productos en el carrito</td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  {% endfor %}
+                </tbody>
+                <tfoot>
+                  <tr>
+                    <td></td>
+                    <td></td>
+                    <td>Total: $ {{ cart.total}}</td>
+                    <td class="d-flex justify-content-around">
+                      <a href="{% url 'tienda:void' %}">
+                        <button type="button" class="btn btn-success btn-sm" id="clear" data-toggle="tooltip" data-placement="top" title="Vaciar carrito">
+                            <span class="material-icons">Limpiar carrito</span>
+                        </button>
+                      </a>
+                      <button type="button" class="btn btn-success btn-sm" id="finish" data-toggle="tooltip" data-placement="top" title="Finalizar compra">
+                        <span class="material-icons">Finalizar compra</span>
+                      </button>
+                    </td>
+                  </tr>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+<script>
+  var options = {
+    animation = true,
+  };
+  var clear = document.getElementById("clear");
+  var finish = document.getElementById("finish");
+  var tooltip_clear = new bootstrap.Tooltip(clear, options);
+  var tooltip_finish = new bootstrap.Tooltip(finish, options);
+</script>
