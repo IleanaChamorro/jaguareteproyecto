@@ -1,3 +1,11 @@
+Hernán Chamorro 
+hernang.work@outlook.com
+38.622.775
+
+Ileana Chamorro
+ic.chamorro07@gmail.com
+45.146.563
+
 ## Jaguarete KAA Site
 This project was built as a final project for Polotic. It includes a shopping cart as main features, which goes up to the cart itself, I haven't developed the checkout yet. 
 
