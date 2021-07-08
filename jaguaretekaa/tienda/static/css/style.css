@@ -279,3 +279,33 @@
     margin: 20px 20px;
     color: whitesmoke;
 }
+@media (min-width: 768px) {
+  .nav-item{
+    font-size: 1rem;
+  }
+  .card-body{
+    box-sizing: content-box;
+    height: 100px;
+    width: 95%;
+    height: 180px;
+    text-align: flex;
+  }
+  .card-productos{
+    font-size: 30px;
+  }
+  .card-text{
+    font-size: 1.8vw;
+  }
+  .card-title{
+    font-size: 1.8vw;
+  }
+  .card-footer{
+    font-size: 1px;
+  }
+  .title-masproductos{
+    font-size: 27px;
+  }
+  .listaultproductos{
+    font-size: 14px;
+  }
+}

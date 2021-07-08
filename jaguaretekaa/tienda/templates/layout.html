@@ -34,10 +34,10 @@
         </li>
         {% else %}
         <li class="nav-item">
-          <button class="btn btn-outline-success mx-2" type="submit"><a class="nav-link text-white" href="login/">Login</a></button>
+          <button class="btn btn-outline-success mx-2" type="submit"><a class="nav-link text-white" href="http://localhost:8081/login/">Login</a></button>
         </li>
         <li class="nav-item">
-          <button class="btn btn-outline-success mx-2" type="submit"><a class="nav-link text-white" href="register/">Registro</a></button>
+          <button class="btn btn-outline-success mx-2" type="submit"><a class="nav-link text-white" href="http://localhost:8081/register/">Registro</a></button>
         </li>
         {% endif %}
 
@@ -71,7 +71,11 @@
               <a class="nav-link" href="{% url 'tienda:about' %}">Acerca de</a>
             </li>
             <a href="mailto:admin@jaguaretekaa.com" type="button" class="nav-link" data-toggle="modal" data-target="#exampleModal" data-whatever="Jaguarete Kaa S.A">Contacto</a>
-
+            {% if perms.tienda.add_product %}
+              <a href="{% url 'tienda:cart'%}" class="nav-link disabled" role="button">Carrito</a>
+              {% else %}
+              <a href="{% url 'tienda:cart'%}" class="nav-link" role="button">Carrito</a>
+              {% endif %}
             <!--
             <li class="nav-item">
               <a class="nav-link">Nuevo Producto</a>
